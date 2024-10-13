@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnjm0v51mp3dd"]
+
+[ext_resource type="Script" path="res://SCRIPTS/menu.gd" id="1_t1114"]
+[ext_resource type="Texture2D" uid="uid://7x2aa78yb8bb" path="res://MENU FINAL.jpg" id="2_637ex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eweaj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xu0rw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vaqd"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t1114")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_637ex")
+expand_mode = 1
+
+[node name="creditos" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 421.0
+offset_right = 779.0
+offset_bottom = 481.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eweaj")
+text = "                                         "
+
+[node name="reglas" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 346.0
+offset_right = 788.0
+offset_bottom = 409.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_xu0rw")
+text = "                                         "
+
+[node name="jugar" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 379.0
+offset_top = 275.0
+offset_right = 780.0
+offset_bottom = 335.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1vaqd")
+text = "                                         "
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="ColorRect/creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="ColorRect/reglas" to="." method="_on_reglas_pressed"]
+[connection signal="pressed" from="ColorRect/jugar" to="." method="_on_jugar_pressed"]

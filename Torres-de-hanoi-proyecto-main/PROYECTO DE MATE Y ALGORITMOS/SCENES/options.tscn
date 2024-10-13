@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvindsqjqdw8l"]
+
+[ext_resource type="Script" path="res://SCRIPTS/optionsr.gd" id="1_axgs0"]
+[ext_resource type="Texture2D" uid="uid://dra13oudjd52p" path="res://IMAGES AND GIF/backmain.png" id="2_fjq5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dasd0"]
+bg_color = Color(0.360519, 0.5879, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebh45"]
+bg_color = Color(0, 0.668888, 0.797536, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k82ra"]
+bg_color = Color(0, 0.728007, 0.0691278, 1)
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_axgs0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_fjq5s")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.0
+offset_top = -124.0
+offset_right = 88.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="VOLUMEN" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_dasd0")
+text = "VOLUMEN"
+
+[node name="IDIOMA" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ebh45")
+text = "IDIOMA"
+
+[node name="RESOLUCIÓN" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_ebh45")
+text = "GRAFICOS"
+
+[node name="ATRAS" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_k82ra")
+text = "ATRAS"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer/VOLUMEN" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/IDIOMA" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/RESOLUCIÓN" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ATRAS" to="." method="_on_atras_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/ATRAS" to="." method="_on_salir_pressed"]

@@ -1,0 +1,148 @@
+[gd_scene load_steps=17 format=3 uid="uid://hyhrlmadmxx0"]
+
+[ext_resource type="Texture2D" uid="uid://mchvvytqix0x" path="res://IMAGES AND GIF/BACKGROUND FINAL.jpg" id="1_aqhjr"]
+[ext_resource type="Texture2D" uid="uid://bytgskc1w80d6" path="res://IMAGES AND GIF/nave espacial.png" id="2_4l1k6"]
+[ext_resource type="Texture2D" uid="uid://dneq11rwgwvn7" path="res://IMAGES AND GIF/disco.png" id="2_5hgvf"]
+[ext_resource type="Script" path="res://SCRIPTS/nave.gd" id="2_8o5vy"]
+[ext_resource type="Script" path="res://SCRIPTS/disco_rubi.gd" id="2_lduqy"]
+[ext_resource type="Texture2D" uid="uid://ch4j0jhefadpu" path="res://IMAGES AND GIF/icon_outline_cross.svg" id="4_rmsmx"]
+[ext_resource type="Script" path="res://SCRIPTS/button.gd" id="4_wb6yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jk38"]
+size = Vector2(8, 315.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iroim"]
+size = Vector2(5, 324)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbndd"]
+size = Vector2(5, 318)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuolo"]
+size = Vector2(400.922, 84.5069)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi1oc"]
+size = Vector2(1150, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w7go"]
+size = Vector2(274.5, 177)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qcv51"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r18qk"]
+size = Vector2(119, 553.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etc1w"]
+size = Vector2(119, 554)
+
+[node name="scenemainprincipal" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1151.0
+offset_bottom = 648.0
+texture = ExtResource("1_aqhjr")
+expand_mode = 1
+
+[node name="Torres" type="Node2D" parent="."]
+
+[node name="Torre1" type="Area2D" parent="Torres"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torres/Torre1"]
+position = Vector2(252, 397)
+shape = SubResource("RectangleShape2D_4jk38")
+
+[node name="Torre2" type="Area2D" parent="Torres"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torres/Torre2"]
+position = Vector2(568.5, 392)
+shape = SubResource("RectangleShape2D_iroim")
+
+[node name="Torre3" type="Area2D" parent="Torres"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Torres/Torre3"]
+position = Vector2(891.5, 394)
+shape = SubResource("RectangleShape2D_cbndd")
+
+[node name="Discos" type="Node2D" parent="."]
+
+[node name="DiscoBronce" type="Node2D" parent="Discos"]
+
+[node name="DiscoPlata" type="Node2D" parent="Discos"]
+
+[node name="DiscoOro" type="Node2D" parent="Discos"]
+
+[node name="DiscoEsmeralda" type="Node2D" parent="Discos"]
+
+[node name="DiscoDiamante" type="Node2D" parent="Discos"]
+
+[node name="DiscoRubi" type="RigidBody2D" parent="Discos"]
+position = Vector2(-318, 4)
+script = ExtResource("2_lduqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Discos/DiscoRubi"]
+position = Vector2(568, 511)
+scale = Vector2(0.434, 0.416)
+texture = ExtResource("2_5hgvf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Discos/DiscoRubi"]
+position = Vector2(567, 527)
+scale = Vector2(0.434, 0.416)
+shape = SubResource("RectangleShape2D_vuolo")
+
+[node name="DiscoLapis" type="Node2D" parent="Discos"]
+
+[node name="trigerpiso" type="StaticBody2D" parent="."]
+position = Vector2(261, 542)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigerpiso"]
+position = Vector2(315, 59)
+shape = SubResource("RectangleShape2D_yi1oc")
+
+[node name="nave" type="CharacterBody2D" parent="."]
+position = Vector2(17, 17)
+script = ExtResource("2_8o5vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="nave"]
+position = Vector2(578, 97)
+scale = Vector2(0.214583, 0.174537)
+texture = ExtResource("2_4l1k6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nave"]
+position = Vector2(566, 98)
+shape = SubResource("RectangleShape2D_0w7go")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1094.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 39.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qcv51")
+script = ExtResource("4_wb6yo")
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 0
+offset_right = 51.0
+offset_bottom = 40.0
+texture = ExtResource("4_rmsmx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1091.5, 276.375)
+shape = SubResource("RectangleShape2D_r18qk")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(58.5, 277)
+shape = SubResource("RectangleShape2D_etc1w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
